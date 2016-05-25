@@ -14,7 +14,11 @@ const CURRENCY_NAME_AUD = 'AUD';
 
 export class CurrencyComponent implements ControlValueAccessor {
     @Input() currencyName: string = CURRENCY_NAME_AUD;
-
+    @Input() minFrac: number = 2;
+    @Input() maxFrac: number = 2;
+    @Input() minSig: number;
+    @Input() maxSig: number;
+    
     private _currency: number;
     private _currencyNames: string[] = ['AUD', 'USD'];
 

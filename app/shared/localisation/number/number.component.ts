@@ -1,4 +1,4 @@
-import { Component, Input, provide  }       from 'angular2/core';
+import { Component, Input, provide, OnInit  }       from 'angular2/core';
 import { NgControl, ControlValueAccessor}   from 'angular2/common';
 
 import { LocalisationService }              from '../localisation.service';
@@ -11,7 +11,7 @@ import { NumberFormatterProperties }        from '../localisation.model';
   `,
 })
 
-export class NumberComponent implements ControlValueAccessor {
+export class NumberComponent implements ControlValueAccessor, OnInit {
     @Input() minFrac: number;
     @Input() maxFrac: number;
     @Input() minSig: number;
@@ -27,7 +27,11 @@ export class NumberComponent implements ControlValueAccessor {
         if (this._ngControl)
             this._ngControl.valueAccessor = this;
     }
-
+    
+    public ngOnInit(){
+            this._displayNumber = this.toDisplay(this._number);
+    }
+    
     public change(newValue) {
         try {
             let result = this.toValue(newValue);            
@@ -42,8 +46,6 @@ export class NumberComponent implements ControlValueAccessor {
     public  writeValue(value?: number) {
         if (value != null && value != undefined) {
             this._number = value;
-            console.log('on write value');
-            this._displayNumber = this.toDisplay(value);
         }
     }
 
@@ -74,7 +76,7 @@ export class NumberComponent implements ControlValueAccessor {
         return this._localisationService.parseNumber(stringValue);
     }
 
-    private onblur() {
+    private onblur() {        
         this._displayNumber = this.toDisplay(this._number);
     }
 }
