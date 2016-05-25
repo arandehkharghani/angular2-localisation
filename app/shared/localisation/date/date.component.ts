@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, OnInit, Input, Output, EventEmitter, provide }     from 'angular2/core';
+import { Component, AfterViewInit, OnInit, Input, Output, EventEmitter, provide, ViewChild }     from 'angular2/core';
 import { NgControl, ControlValueAccessor }                                            from 'angular2/common';
 
 import { LocalisationService }              from '../localisation.service';
@@ -8,12 +8,13 @@ import { DateFormatterProperties }          from '../localisation.model';
     selector: 'my-date',
     template: `
   <div class="input-group date">
-    <input id='my_datepicker' type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+    <input #my_datepicker type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
   </div>
   `,
 })
 
 export class DateComponent implements AfterViewInit, ControlValueAccessor {
+    @ViewChild('my_datepicker') datepicker;
     @Input() pattern: string;
     /**
      * pattern: 
@@ -36,7 +37,7 @@ export class DateComponent implements AfterViewInit, ControlValueAccessor {
 
     public ngAfterViewInit() {
         let that = this;
-        $('#my_datepicker').datepicker({
+        $(this.datepicker.nativeElement).datepicker({
             autoclose: true,
             language: this._localisationService.getLocale()[0],
             format: {
@@ -45,9 +46,9 @@ export class DateComponent implements AfterViewInit, ControlValueAccessor {
             }
         });
 
-        $('#my_datepicker').datepicker("setDate", this._localisationService.formatDate(this._date));
+        $(this.datepicker.nativeElement).datepicker("setDate", this._localisationService.formatDate(this._date));
 
-        $('#my_datepicker').datepicker()
+        $(this.datepicker.nativeElement).datepicker()
             .on('changeDate', function (e) {
                 // this is raised only when user selects a new date from the date popup pane
                 that.onChange(that._date);
