@@ -1,0 +1,17 @@
+<div class="col-md-6">
+    <div class="input-group">
+
+        <my-number [(ngModel)]="_currency" [minFrac]=2 [maxFrac]=2 (ngModelChange)='onCurrencyChange($event)'></my-number>
+
+        <div class="input-group-btn">
+
+            <button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>{{currencyName}}&nbsp;<span class='caret'></span></button>
+            <ul class='dropdown-menu' style='min-width:0px'>
+                <li *ngFor='let currName of _currencyNames' (click)='onCurrencyNameChange(currName)'><a role="button" data-toggle="collapse">{{currName}}</a></li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>

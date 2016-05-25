@@ -1,0 +1,10 @@
+
+    <div>
+
+        <div class='col-md-12'>parent number property: {{number}}</div>
+        <div class='col-md-12'>parent number property using pipe: {{number|localeNumber}}</div>
+        <div class='col-md-12'>parent number property using pipe (2): {{number|localeNumber:2:4}}</div>
+        <div class='col-md-12'>parent number property using pipe (8): {{number|localeNumber:4:8:8:16}}</div>
+
+        <my-number class='col-md-4' [(ngModel)]="number"></my-number>
+    </div>

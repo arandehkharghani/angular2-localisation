@@ -1,0 +1,8 @@
+    <div>
+        <div class='col-md-12'>parent currency property: {{money}}</div>
+        <div class='col-md-12'>parent currency property using pipe (AUD): {{money|localeCurrency:'AUD':'code'}}</div>
+        <div class='col-md-12'>parent currency property using pipe (Australian Dollars): {{money|localeCurrency:'AUD':'name'}}</div>
+        <div class='col-md-12'>parent currency property using pipe ($): {{money|localeCurrency:'AUD'}}</div>
+
+        <my-currency [(ngModel)]='money' [currencyName]='"USD"'></my-currency>
+    </div>

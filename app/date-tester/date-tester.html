@@ -1,0 +1,12 @@
+
+    <div>
+
+        <div class='col-md-12'>parent date property: {{date}}</div>
+        <div class='col-md-12'>parent date property using pipe (short): {{date|localeDate:'short'}}</div>
+        <div class='col-md-12'>parent date property using pipe (medium): {{date|localeDate:'medium'}}</div>
+        <div class='col-md-12'>parent date property using pipe (long): {{date|localeDate:'long'}}</div>
+        <div class='col-md-12'>parent date property using pipe (full): {{date|localeDate:'full'}}</div>
+
+        <my-date class='col-md-4' [(ngModel)]="date"></my-date>
+
+    </div>

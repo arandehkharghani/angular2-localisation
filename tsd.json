@@ -1,0 +1,42 @@
+{
+  "version": "v4",
+  "repo": "borisyankov/DefinitelyTyped",
+  "ref": "master",
+  "path": "typings",
+  "bundle": "typings/tsd.d.ts",
+  "installed": {
+    "express/express.d.ts": {
+      "commit": "768a3952704566c0665550700bcb131eee7b91a1"
+    },
+    "express-serve-static-core/express-serve-static-core.d.ts": {
+      "commit": "768a3952704566c0665550700bcb131eee7b91a1"
+    },
+    "serve-static/serve-static.d.ts": {
+      "commit": "768a3952704566c0665550700bcb131eee7b91a1"
+    },
+    "node/node.d.ts": {
+      "commit": "768a3952704566c0665550700bcb131eee7b91a1"
+    },
+    "mime/mime.d.ts": {
+      "commit": "768a3952704566c0665550700bcb131eee7b91a1"
+    },
+    "socket.io/socket.io.d.ts": {
+      "commit": "310c247694d7f31bd2e3198f71c55221f7c3a3c7"
+    },
+    "cookie-parser/cookie-parser.d.ts": {
+      "commit": "768a3952704566c0665550700bcb131eee7b91a1"
+    },
+    "body-parser/body-parser.d.ts": {
+      "commit": "768a3952704566c0665550700bcb131eee7b91a1"
+    },
+    "morgan/morgan.d.ts": {
+      "commit": "768a3952704566c0665550700bcb131eee7b91a1"
+    },
+    "method-override/method-override.d.ts": {
+      "commit": "768a3952704566c0665550700bcb131eee7b91a1"
+    },
+    "jquery/jquery.d.ts": {
+      "commit": "6d0e826824da52204c1c93f92cecbc961ac84fa9"
+    }
+  }
+}

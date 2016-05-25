@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Set the base href -->
+    <script>
+        document.write('<base href="' + document.location + '" />');
+    </script>
+
+    <title>Router Sample</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <!-- IE required polyfills, in this exact order -->
+    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+    <script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
+    <script src='node_modules/babel-polyfill/dist/polyfill.js'></script>
+    <!-- always befor angular2 polyfill -->
+    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="node_modules/systemjs/dist/system.js"></script>
+
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+
+    <!-- Add the router library -->
+    <script src="node_modules/angular2/bundles/router.dev.js"></script>
+    <script src='node_modules/angular2/bundles/http.js'></script>
+
+    <script>
+        System.config({
+          baseURL: '',          
+          packages: {
+              "app": {
+                  format: 'cjs',
+                  defaultExtension: 'js'
+              }
+          }
+      });
+      System.import('app/main')
+            .then(null, console.error.bind(console));
+    </script>
+</head>
+
+<body>
+    <my-app>loading...</my-app>
+</body>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+<script src='node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js'></script>
+<script src='node_modules/cldrjs/dist/cldr.js'></script>
+<script src='node_modules/cldrjs/dist/cldr/event.js'></script>
+<script src='node_modules/cldrjs/dist/cldr/supplemental.js'></script>
+<script src='node_modules/globalize/dist/globalize.js'></script>
+<script src='node_modules/globalize/dist/globalize/number.js'></script>
+<script src='node_modules/globalize/dist/globalize/plural.js'></script>
+
+<script src='node_modules/globalize/dist/globalize/date.js'></script>
+<script src='node_modules/globalize/dist/globalize/currency.js'></script>
+<script src='node_modules/globalize/dist/globalize/relative-time.js'></script>
+<script src='node_modules/globalize/dist/globalize/unit.js'></script>
+
+</html>

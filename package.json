@@ -1,0 +1,41 @@
+{
+  "name": "angular2-nodejs-typescript",
+  "version": "1.0.0",
+  "description": "angular2 tab components responsive based on user choice",
+  "main": "app.js",
+  "scripts": {},
+  "author": "Aran",
+  "license": "ISC",
+  "dependencies": {
+    "angular2": "^2.0.0-beta.16",
+    "body-parser": "^1.15.0",
+    "cookie-parser": "^1.4.1",
+    "es6-shim": "^0.35.0",
+    "express": "^4.13.4",
+    "method-override": "^2.3.5",
+    "morgan": "^1.7.0",
+    "reflect-metadata": "^0.1.2",
+    "rxjs": "^5.0.0-beta.2",
+    "serve-favicon": "^2.3.0",
+    "socket.io": "^1.4.5",
+    "systemjs": "^0.19.26",
+    "zone.js": "^0.6.12",
+    "globalize": "^1.1.1",
+    "bootstrap-datepicker": "^1.6.1"
+  },
+  "devDependencies": {    
+    "babel-polyfill": "^6.9.0",
+    "babel-preset-es2015": "^6.6.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-debug": "^2.1.2",
+    "gulp-filter": "^4.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-typescript": "^2.13.0",
+    "gulp-watch": "^4.3.5",
+    "merge2": "^1.0.2",
+    "run-sequence": "^1.1.5",
+    "tsconfig": "^2.2.0",
+    "tsd": "^0.6.5"
+  }
+}
