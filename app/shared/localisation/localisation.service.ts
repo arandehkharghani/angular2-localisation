@@ -18,8 +18,8 @@ export class LocalisationService {
     private _numberFormatter;
     private _dateFormatter;
     private _currencyFormatter;
-    
-    constructor(private _http: Http, @Inject(APP_SETTINGS) private _appSettings: AppSettings) {            
+
+    constructor(private _http: Http, @Inject(APP_SETTINGS) private _appSettings: AppSettings) {
     }
 
     public getLocale(): string {
@@ -28,6 +28,10 @@ export class LocalisationService {
         }
         return navigator.language;
     }
+    private getLanguage(): string {
+        return new Cldr(this.getLocale()).attributes.language;
+    }
+
     public parseNumber = (stringValue: string): number => {
         let parsedValue = this._numberParser(stringValue);
         if (!parsedValue) {
@@ -90,10 +94,11 @@ export class LocalisationService {
      * initialises the Globalize related object for localisation service.
      */
     public init(): Observable<void> {
-        let that = this;        
+        let that = this;
+        
         return Observable.create(observer => {
             that.loadJsonFiles().subscribe(res => {
-                that._globalize = Globalize.locale(that.getLocale());
+                that._globalize = Globalize.locale(this.getLanguage());
                 that._numberParser = Globalize.numberParser();
                 that._dateParser = Globalize.dateParser();
                 that._numberFormatter = Globalize.numberFormatter();
@@ -107,21 +112,21 @@ export class LocalisationService {
 
     private loadJsonFiles(): Observable<void> {
         let files: string[] = [];
-        let locale: string = this.getLocale();
+        let language = this.getLanguage();
 
         files.push(this._appSettings.productLibFolder + "/cldr-data/supplemental/likelySubtags.json");
-        files.push(this._appSettings.productLibFolder + "/cldr-data/main/" + locale + "/numbers.json");
+        files.push(this._appSettings.productLibFolder + "/cldr-data/main/" + language + "/numbers.json");
         files.push(this._appSettings.productLibFolder + "/cldr-data/supplemental/numberingSystems.json");
         files.push(this._appSettings.productLibFolder + "/cldr-data/supplemental/plurals.json");
         files.push(this._appSettings.productLibFolder + "/cldr-data/supplemental/ordinals.json");
-        files.push(this._appSettings.productLibFolder + "/cldr-data/main/" + locale + "/currencies.json");
+        files.push(this._appSettings.productLibFolder + "/cldr-data/main/" + language + "/currencies.json");
         files.push(this._appSettings.productLibFolder + "/cldr-data/supplemental/currencyData.json");
-        files.push(this._appSettings.productLibFolder + "/cldr-data/main/" + locale + "/ca-gregorian.json");
-        files.push(this._appSettings.productLibFolder + "/cldr-data/main/" + locale + "/timeZoneNames.json");
+        files.push(this._appSettings.productLibFolder + "/cldr-data/main/" + language + "/ca-gregorian.json");
+        files.push(this._appSettings.productLibFolder + "/cldr-data/main/" + language + "/timeZoneNames.json");
         files.push(this._appSettings.productLibFolder + "/cldr-data/supplemental/timeData.json");
         files.push(this._appSettings.productLibFolder + "/cldr-data/supplemental/weekData.json");
-        files.push(this._appSettings.productLibFolder + "/cldr-data/main/" + locale + "/dateFields.json");
-        files.push(this._appSettings.productLibFolder + "/cldr-data/main/" + locale + "/units.json");
+        files.push(this._appSettings.productLibFolder + "/cldr-data/main/" + language + "/dateFields.json");
+        files.push(this._appSettings.productLibFolder + "/cldr-data/main/" + language + "/units.json");
 
         let jsonCalls: Observable<void>[] = [];
         for (let file of files) {
