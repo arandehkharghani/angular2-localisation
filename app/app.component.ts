@@ -15,7 +15,7 @@ import { APPSETTINGS, APP_SETTINGS } from './shared/app-settings';
     selector: 'my-app',
     template: `
     <div *ngIf='_isReady'>
-        <h1 class="title">Tab Component</h1>
+        <h1 class="title">Localisation</h1>
     
         <nav>
         
