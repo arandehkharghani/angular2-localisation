@@ -28,6 +28,7 @@ export class LocalisationService {
         }
         return navigator.language;
     }
+    
     private getLanguage(): string {
         return new Cldr(this.getLocale()).attributes.language;
     }
